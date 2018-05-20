@@ -1,4 +1,4 @@
-package com.java_hillel.svidovyi.Task34;
+package com.java_hillel.svidovyi.Task34_35_36;
 
 public class Employee {
     private  String name;

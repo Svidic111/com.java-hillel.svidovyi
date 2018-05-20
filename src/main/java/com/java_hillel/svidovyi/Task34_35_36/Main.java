@@ -1,12 +1,26 @@
-package com.java_hillel.svidovyi.Task34;
+package com.java_hillel.svidovyi.Task34_35_36;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
+
+    // Task 35
+    public static List<Employee> streamToList(Stream<Employee> E) {
+        List<Employee> result = new LinkedList<>();
+        E.forEach(e -> result.add(e));
+        return result;
+    }
+
+    // Task 36
+    public static Double averageSalary(Stream<Employee> E) {
+        Double result = E.mapToDouble(e -> e.getSalary()).average().getAsDouble();
+        return result;
+    }
+
     public static void main(String[] args) {
 
     Employee emp1 = new Employee("Anna", 28, Gender.FEMALE);
@@ -35,7 +49,16 @@ public class Main {
     emp8.setMarried(true);
     emp8.setSalary(10.00);
 
-    List<Employee> employeeList = Arrays.asList(emp1, emp2, emp3, emp4, emp5, emp6, emp7, emp8);
+
+        Stream<Employee> empStream = Stream.<Employee>of(emp1, emp2, emp3, emp4, emp5, emp6, emp7, emp8);
+
+        //Task35 - получение листа из стрима
+        //System.out.println(streamToList(empStream));
+
+        //Task36 - получение средний зарплаты
+        System.out.println(averageSalary(empStream));
+
+        // List<Employee> employeeList = Arrays.asList(emp1, emp2, emp3, emp4, emp5, emp6, emp7, emp8);
     // получить первого женатого мужчину + вывести его имя в консоль;
 //    System.out.println(employeeList.stream().filter(e -> e.isMarried() && e.getGender() == Gender.MALE).findFirst());
 
@@ -59,5 +82,6 @@ public class Main {
 
     // получить сотрудников только с уникальными именами + вывести в консоль их имена.
 //    employeeList.stream().distinct().forEach(System.out::println);
+       // employeeList.stream().map(e -> e.getName()).distinct().forEach(System.out::println);
     }
 }
