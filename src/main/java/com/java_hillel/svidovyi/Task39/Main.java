@@ -16,6 +16,5 @@ public class Main {
         t3.run();
         t3.join();
         t4.run();
-
     }
 }
