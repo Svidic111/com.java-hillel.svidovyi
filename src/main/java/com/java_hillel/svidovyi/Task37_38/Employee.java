@@ -1,4 +1,6 @@
-package com.java_hillel.svidovyi.Task37;
+package com.java_hillel.svidovyi.Task37_38;
+
+import com.java_hillel.svidovyi.Task33.StringAlg;
 
 public class Employee {
     private String name;
@@ -6,6 +8,18 @@ public class Employee {
     private int age;
     private Gender gender;
     private boolean married;
+
+    public String toCSVLine() {
+        String mariege = "";
+        if (this.married) mariege = "yes";
+        else mariege = "no";
+        StringBuilder sb = new StringBuilder().append("\"" + this.name + "\"").append(", ")
+                .append(this.salary/100).append(", ")
+                .append(this.age).append(", ")
+                .append("\"" + this.gender.toString().toLowerCase() + "\"").append(", ")
+                .append("\"" + mariege + "\"");
+        return sb.toString();
+    }
 
     public Employee(String name, int age, Gender gender) {
         this.name = name;
@@ -17,7 +31,7 @@ public class Employee {
         return name;
     }
 
-    public double getSalary() {
+    public long getSalary() {
         return salary;
     }
 

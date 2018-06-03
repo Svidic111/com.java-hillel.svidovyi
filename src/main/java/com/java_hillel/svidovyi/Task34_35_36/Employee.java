@@ -1,6 +1,8 @@
 package com.java_hillel.svidovyi.Task34_35_36;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable{
     private  String name;
     private double Salary;
     private int age;
